@@ -81,7 +81,50 @@ lst3 = func2([])
 print(lst1, lst2, lst3)  # just 100
 
 # Slicing
-first = [1, 2, 3, 4, 5]
+first = [1, 2, 3, 4, 5, 6, 7, 8]
 print(first[:])  # copy of the list - show all items
 print(first[:2])  # Just pos 0 and 1
 print(first[2:])  # from pos 2 until end
+print(first[1:6])  # from pos 1 up to but not include pos 6
+print(first[1:8:2])  # has a step of 2 - so 2, 4, 6, 8
+print(first[0:9:3])  # has a step of 3 - so 1, 4, 7
+print(first[:-1])  # all items except last
+print(first[-1:])  # just last - 8
+print(first[::-1])  # reverse order full list
+first[2:4] = [19, 20]  # add 19, 20 at pos 2
+print(first)
+
+# Useful methods
+first = [9, 7, 11, 1, 2, 3, 4, 5, 5, 6, 7, 8, "Paul"]
+contains_4 = "Paul" in first  # True
+index = first.index("Paul")
+print(contains_4, index)
+print(first.count(5))  # 2
+first = [9, 7, 11, 1, 2, 3, 4, 5, 5, 6, 7, 8]
+first.sort()
+print(first)
+first.sort(reverse=True)
+print(first)
+first.reverse()
+print(first)
+print(list(reversed(first)))
+
+# copy
+first = [9, 7, 11, 1, 2, 3, 4, 5, 5, 6, 7, 8, "Paul"]
+second = first[:]
+second[0] = 888
+print(first, second)
+
+# zip
+first = ['Paul', 'Rory', 'Caitlin']
+ages = [40, 19, 22]
+zipped = zip(first, ages)
+print(list(zipped))  # created tuples name/age in list
+
+# list comprehension
+first = [x for x in range(10)]
+print(first)
+first = [x for x in range(10) if x % 2 == 0]  # 2 4 6 8
+print(first)
+first = [[x for x in range(10) if x % 2 == 0] for _ in range(5)]  # even numbers 5 times
+print(first)
